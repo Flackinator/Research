@@ -1,0 +1,76 @@
+version = 10000
+
+type = '2x2'
+
+data = 'setup'
+
+name = 'test'
+
+comment = 'test model'
+
+time_yr = 0
+
+ref = "None"
+
+angles = 'relative'
+
+# Earth-Moon
+[binary.1]
+an = 3.84e10
+en = 0.0549
+phase = 0.5
+euler_deg = [ 0,  0, 0 ]
+
+# Star binary
+[binary.2]
+an = 7.80901e12
+en = 0
+phase = 0.5
+euler_deg = [ 0,  0, 0 ]
+
+# outer binary
+[binary.3]
+an = 1.496e13
+en = 0.01671
+phase = 0.5
+euler_deg = [ 0, 0, 0 ] # does not impact physics, only for plotting
+
+#Earth
+[star.1]
+euler_deg = [ 0,  72, 0 ]
+M = 5.97e27
+I = 2e55
+S = 6.371e8
+k = 0.008
+Q = 1e5
+Jn = 1.4e51
+
+#Moon
+[star.2]
+euler_deg = [ 0, -84, 0 ]
+M = 7.348e25
+I = 1.5e55
+S = 1.737e8
+k = 0.007
+Q = 1e5
+Jn = 1e51
+
+#Sun 1
+[star.3]
+euler_deg = [ 0,  72, 0 ]
+M = 9.945e32
+I = 2e55
+S = 4.174e10
+k = 0.299
+Q = 1e5
+Jn = 1.4e51
+
+#Sun 2
+[star.4]
+euler_deg = [ 0, -84, 0 ]
+M = 9.945e32
+I = 1.5e55
+S = 4.174e10
+k = 0.030
+Q = 1e5
+Jn = 1e51
