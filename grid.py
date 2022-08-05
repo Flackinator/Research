@@ -1,14 +1,13 @@
 import numpy as np
 from  matplotlib import pylab as plt
 
-from physconst import AU, YR
-from rotation import deg2rad
-from color import rgb, ColorBlindRainbow
-from human import time2human
-
-from .config import Config
-from .generic import multi
-from .parallel import ParallelProcessor
+from python.source.physconst import AU, YR
+from python.source.rotation import deg2rad
+from python.source.color import rgb, ColorBlindRainbow
+from python.source.human import time2human
+from python.source.multistar.generic import multi
+from python.source.multistar.config import Config
+from python.source.multistar.parallel import ParallelProcessor
 
 GOLDEN = 0.5 * (1 + np.sqrt(5))
 
