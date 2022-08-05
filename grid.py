@@ -76,7 +76,6 @@ class Quad(object):
         config = self.config.copy()
         if en is not None:
 	    assert 0 <= en <= 1
-	    
             config['binary.2.en'] = en
         if an is not None:
             config['binary.2.an_AU'] = an
