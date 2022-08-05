@@ -1,7 +1,7 @@
 import numpy as np
 from  matplotlib import pylab as plt
 
-from .physconst import AU, YR
+from physconst import AU, YR
 from home.martin.python.source.rotation import deg2rad
 from home.martin.python.source.color import rgb, ColorBlindRainbow
 from home.martin.python.source.human import time2human
