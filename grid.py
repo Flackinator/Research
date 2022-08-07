@@ -5,6 +5,7 @@ from physconst import AU, YR
 from rotation import deg2rad
 from color import rgb, ColorBlindRainbow
 from human import time2human
+
 from multistar.generic import multi
 from multistar.config import Config
 from multistar.parallel import ParallelProcessor
