@@ -89,12 +89,12 @@ class Quad(object):
 
             
             # TODO - FIX: need to adjust radii properly
-            if m1 <= 0.5
+            if m1 <= 0.5:
             	config['star.3.S_Rsun'] = m1^0.56
             else:
             	config['star.3.S_Rsun'] = m1^0.79
 
-            if m2 <= 0.5
+            if m2 <= 0.5:
             	config['star.4.S_Rsun'] = m2^0.56
             else:
             	config['star.4.S_Rsun'] = m2^0.79
