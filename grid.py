@@ -87,9 +87,18 @@ class Quad(object):
             config['star.3.M_Msun'] = m1
             config['star.4.M_Msun'] = m2
 
+            
             # TODO - FIX: need to adjust radii properly
-            config['star.3.S_Rsun'] = np.sqrt(m1)
-            config['star.4.S_Rsun'] = np.sqrt(m2)
+            if m1 <= 0.5
+            	config['star.3.S_Rsun'] = m1^0.56
+            else:
+            	config['star.3.S_Rsun'] = m1^0.79
+
+            if m2 <= 0.5
+            	config['star.4.S_Rsun'] = m2^0.56
+            else:
+            	config['star.4.S_Rsun'] = m2^0.79
+
 
         m = multi(config)
 
