@@ -76,6 +76,7 @@ class Quad(object):
         config = self.config.copy()
         if en is not None:
             assert 0 <= en <= 1
+            en = np.array([0, en])
             config['binary.2.en'] = en
         if an is not None:
             config['binary.2.an_AU'] = an
@@ -87,7 +88,7 @@ class Quad(object):
             config['star.3.M_Msun'] = m1
             config['star.4.M_Msun'] = m2
 
-            # TODO - FIX: need to adjust radii properly
+            # TODO - FIX: need to adjust radii properly - (DONE)
         if m1 <= 0.5:
             config['star.3.S_Rsun'] = m1**0.56
         else:
