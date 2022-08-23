@@ -70,7 +70,7 @@ class Outcome(object):
 
 class Quad(object):
 
-    def __init__(self, toml='/binary_martin_base.toml'):
+    def __init__(self, toml='binary_martin_base.toml'):
         self.config = Config(toml)
 
     def __call__(self, en=0, an=0.1, i=0, q=1, dt=1*YR):
