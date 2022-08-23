@@ -17,7 +17,7 @@ angles = 'relative'
 # Earth-Moon
 [binary.1]
 name = 'Moon orbit'
-an = 3.84e10
+an_km = 384.399e3
 en = 0.0549
 phase = 0.0
 euler_deg = [ 0.0, 5.145, 0.0 ]
@@ -25,7 +25,7 @@ euler_deg = [ 0.0, 5.145, 0.0 ]
 # Star binary
 [binary.2]
 name = 'Binary orbit'
-an = 8.976e12
+an_AU = 0.5
 en = 0
 phase = 0.0
 euler_deg = [ 0.0, 10.0, 0.0 ]
@@ -33,7 +33,7 @@ euler_deg = [ 0.0, 10.0, 0.0 ]
 # outer binary
 [binary.3]
 name = 'Earth orbit'
-an = 1.496e13
+an_km = 149.598023e6
 en = 0.0167086
 phase = 0.0
 euler_deg = [ 0, 0, 0 ] # does not impact physics, only for plotting
@@ -42,9 +42,9 @@ euler_deg = [ 0, 0, 0 ] # does not impact physics, only for plotting
 [star.1]
 name = 'Earth'
 euler_deg = [288.1,  18.29, 0.0]
-M = 5.97e27
+M_kg = 5.97237e24
 I = 0.3307
-S = 6.371e8
+S_km = 6371.0
 k = 0.299
 Q = 1e5
 Jn = 1.4e51
@@ -54,9 +54,9 @@ P_d = 0.99726968
 [star.2]
 name = 'Moon'
 euler_deg = [ 266.86, 6.687, 0.0 ]
-M = 7.348e25
+M_kg = 7.342e22
 I = 0.3929
-S = 1.737e8
+S_km = 1737.4
 k = 0.030
 Q = 1e5
 Jn = 1e51
@@ -66,9 +66,9 @@ P_d = 27.321661
 [star.3]
 name = 'Star 1'
 euler_deg = [ 0.0,  7.25, 0.0 ]
-M = 1.8895e33
+M_Msun = 0.5
 I = 0.070
-S = 6.7483e10
+S_Rsun = 0.7
 k = 0.013
 Q = 1e5
 Jn = 1.4e51
@@ -78,9 +78,9 @@ P_d = 25.05
 [star.4]
 name = 'Star 2'
 euler_deg = [ 0.0,  7.25, 0.0 ]
-M = 9.9446e31
+M_Msun = 0.5
 I = 0.070
-S = 6.53958e9
+S_Rsun = 0.7
 k = 0.013
 Q = 1e5
 Jn = 1e51
