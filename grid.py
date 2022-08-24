@@ -138,7 +138,7 @@ class Quad(object):
         ro = m.ron
         vo = m.von
         # TODO - test whether moon is further from earth than (solar) hill radius
-        if ((ii := np.argmax(ro[0, :] > 0.1 * AU) > 0):
+        if ((ii := np.argmax(ro[0, :] > 0.1 * AU)) > 0):
             return Outcome(Fate.MOONGONE, m.t[ii])
         # TODO - test whether moon and earth escaped jointly
         if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):
