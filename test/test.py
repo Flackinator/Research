@@ -73,7 +73,7 @@ class Quad(object):
     def __init__(self, toml='binary_martin_base.toml'):
         self.config = Config(toml)
 
-    def __call__(self, en=0, an=0.1, i=0, q=1, dt=1*YR, an_km=0, M_kg2=0, M_kg1=0):
+    def __call__(self, en=0, an=0.1, i=0, q=1, dt=1*YR):
         config = self.config.copy()
         if en is not None:
             assert 0 <= en <= 0.99
