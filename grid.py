@@ -81,7 +81,7 @@ class Quad(object):
         if an is not None:
             config['binary.2.an_AU'] = an
         if i is not None:
-            config['binary.2.euler_deg'][1] = i
+            config['binary.2.euler_deg', 1] = i
         if q is not None:
             assert 0.1 <= q <= 1
             m1, m2 = np.array([1, q]) / (1 + q)
@@ -138,7 +138,7 @@ class Quad(object):
         ro = m.ron
         vo = m.von
         # TODO - test whether moon is further from earth than (solar) hill radius
-        if ((ii := np.argmax(ro[0, :] > 0.1 * AU)) > 0):
+        if ((ii := np.argmax(ro[0, :] > 0.01 * AU)) > 0):
             return Outcome(Fate.MOONGONE, m.t[ii])
         # TODO - test whether moon and earth escaped jointly
         if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):

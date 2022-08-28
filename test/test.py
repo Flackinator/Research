@@ -73,10 +73,10 @@ class Quad(object):
     def __init__(self, toml='binary_martin_base.toml'):
         self.config = Config(toml)
 
-    def __call__(self, en=0, an=0.1, i=0, q=1, dt=1*YR):
+    def __call__(self, en=0, an=0.1, i=0, q=1, dt=1*YR, an_km=0, M_kg2=0, M_kg1=0):
         config = self.config.copy()
         if en is not None:
-            assert 0 <= en <= 1
+            assert 0 <= en <= 0.99
             config['binary.2.en'] = en
         if an is not None:
             config['binary.2.an_AU'] = an
@@ -138,7 +138,7 @@ class Quad(object):
         ro = m.ron
         vo = m.von
         # TODO - test whether moon is further from earth than (solar) hill radius
-        if ((ii := np.argmax(ro[0, :] > 0.01)) > 0):
+        if ((ii := np.argmax(ro[0, :] > 0.01 * AU)) > 0):
             return Outcome(Fate.MOONGONE, m.t[ii])
         # TODO - test whether moon and earth escaped jointly
         if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):
