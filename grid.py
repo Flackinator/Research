@@ -99,6 +99,16 @@ class Quad(object):
         else:
             config['star.4.S_Rsun'] = m2**0.79
 
+        if pm is not None:
+            config['binary.1.phase'] = pm
+        if pb is not None:
+            config['binary.2.phase'] = pb
+        if cutoff is not None:
+            config.set('cutoff', cutoff)
+        if cutoff is None:
+            cutoff = 2 * AU
+        self.cutoff = cutoff
+
 
         m = multi(config)
 
