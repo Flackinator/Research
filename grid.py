@@ -10,6 +10,7 @@ from human import time2human
 from multistar.generic import multi
 from multistar.config import Config
 from multistar.parallel import ParallelProcessor
+from multistar.util import firsttrue
 
 GOLDEN = 0.5 * (1 + np.sqrt(5))
 
@@ -105,8 +106,6 @@ class Quad(object):
             config['binary.2.phase'] = pb
         if cutoff is not None:
             config.set('cutoff', cutoff)
-        if cutoff is None:
-            cutoff = 2 * AU
         self.cutoff = cutoff
 
 
@@ -115,7 +114,7 @@ class Quad(object):
         tx = np.minimum(dt, 1000*YR)
         tt = 0
         while True:
-            m.rund(tx)
+            m.rund(tx, dtd=0.1*YR)
             tt += tx
             outcome =  self.analyze(m, tt)
             if outcome.unstable:
@@ -141,18 +140,25 @@ class Quad(object):
         if m.t is None:
             return Outcome(Fate.FAIL, 0)
 
-        if not np.allclose(m.t[-1], dt):
+        #if not np.allclose(m.t[-1], dt):
             # TODO - test what collided (use m.rn)
-            return Outcome(Fate.COLLISION, m.t[-1])
+         #   return Outcome(Fate.COLLISION, m.t[-1])
 
         ro = m.ron
-        vo = m.von
         # TODO - test whether moon is further from earth than (solar) hill radius
-        if ((ii := np.argmax(ro[0, :] > 0.01 * AU)) > 0):
-            return Outcome(Fate.MOONGONE, m.t[ii])
+        #if ((ii := np.argmax(ro[0, :] > 0.01 * AU)) > 0):
+          #  return Outcome(Fate.MOONGONE, m.t[ii])
         # TODO - test whether moon and earth escaped jointly
-        if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):
-            return Outcome(Fate.EARTHGONE, m.t[ii] )
+        #if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):
+         #   return Outcome(Fate.EARTHGONE, m.t[ii] )
+
+        if (ii := firsttrue(ro[0, :] > 0.01 * AU)) >= 0:
+            return Outcome(Fate.MOONGONE, m.t[ii])
+        if (ii := firsttrue(ro[2, :] > 2 * AU)) >= 0:
+            return Outcome(Fate.EARTHGONE, m.t[ii])
+
+        if not np.allclose(m.t[-1], dt):
+            return Outcome(Fate.COLLISION, m.t[-1])
 
         return Outcome(Fate.STABLE, m.t[-1])
 
