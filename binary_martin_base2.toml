@@ -1,0 +1,90 @@
+version = 10000
+
+type = '2x2'
+
+data = 'setup'
+
+name = 'Binary-Earth-Moon'
+
+comment = 'test model'
+
+time_yr = 0
+
+ref = "None"
+
+angles = 'relative'
+
+# Earth-Moon
+[binary.1]
+name = 'Moon orbit'
+an_km = 384.399e3
+en = 0.0549
+phase = 0.0
+ascending_deg = 0.0
+inclination_deg = 5.145
+periapsis_deg = 0.0
+
+# Star binary
+[binary.2]
+name = 'Binary orbit'
+an_AU = 0.5
+en = 0.1
+phase = 0.0
+ascending_deg = 0.0
+inclination_deg = 0.0
+periapsis_deg = 0.0
+
+# outer binary
+[binary.3]
+name = 'Earth orbit'
+an_km = 149.598023e6
+en = 0.0167086
+phase = 0.0
+# does not impact physics, only for plotting
+ascending_deg = 0.0
+inclination_deg = 0.0
+periapsis_deg = 0.0
+
+#Earth
+[star.1]
+name = 'Earth'
+euler_deg = [288.1,  18.29, 0.0]
+M_kg = 5.97237e24
+I = 0.3307
+S_km = 6371.0
+k = 0.299
+Q = 12.0
+P_d = 0.99726968
+
+#Moon
+[star.2]
+name = 'Moon'
+euler_deg = [ 266.86, 6.687, 0.0 ]
+M_kg = 7.342e22
+I = 0.3929
+S_km = 1737.4
+k = 0.030
+Q = 27.0
+P_d = 27.321661
+
+#Sun 1
+[star.3]
+name = 'Star 1'
+euler_deg = [ 0.0,  7.25, 0.0 ]
+M_Msun = 0.5
+I = 0.070
+S_Rsun = 0.7
+k = 0.013
+Q = 1e5
+P_d = 25.05
+
+#Sun 2
+[star.4]
+name = 'Star 2'
+euler_deg = [ 0.0,  7.25, 0.0 ]
+M_Msun = 0.5
+I = 0.070
+S_Rsun = 0.7
+k = 0.013
+Q = 1e5
+P_d = 25.05
