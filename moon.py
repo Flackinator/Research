@@ -14,7 +14,7 @@ from multistar.util import firsttrue
 
 from multistar.interface import STATUS_OK, STATUS_COLLIDE, STATUS_ESCAPE
 
-from multistar.grid.base import StudyBase, FateBase, Outcome, SystemBase
+from multistar.grid.base import StudyBase, FateBase, OutcomeBase, SystemBase
 
 class Fate(FateBase):
     FAIL = FateBase.FAIL
