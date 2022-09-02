@@ -1,9 +1,15 @@
+
 import numpy as np
+from  matplotlib import pylab as plt
 
 from physconst import AU, YR
 from rotation import deg2rad
+from color import rgb, ColorBlindRainbow
+from human import time2human
 
+from multistar.generic import multi
 from multistar.config import Config
+from multistar.parallel import ParallelProcessor
 from multistar.util import firsttrue
 
 from multistar.interface import STATUS_OK, STATUS_COLLIDE, STATUS_ESCAPE
