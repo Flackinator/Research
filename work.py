@@ -68,7 +68,7 @@ class Quad(SystemBase):
         'b' : ('pb', 'phase of the binary', r'$\phi_{{\mathrm{{planet}}}}={:5g}$ (deg)'),
         }
 
-    def __init__(self, toml='^/moon3.toml'):
+    def __init__(self, toml='binary_martin_base2.toml'):
         self.config = Config(toml)
 
     def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=[0.01*AU, 0., 10*AU]):
