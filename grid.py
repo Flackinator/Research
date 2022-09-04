@@ -71,7 +71,7 @@ class Outcome(object):
 
 class Quad(object):
 
-    def __init__(self, toml='binary_martin_base.toml'):
+    def __init__(self, toml='binary_martin_base2.toml'):
         self.config = Config(toml)
 
     def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=[0.01*AU, 0., 10*AU]):
@@ -82,7 +82,7 @@ class Quad(object):
         if an is not None:
             config['binary.2.an_AU'] = an
         if i is not None:
-            config['binary.2.euler_deg', 1] = i
+            config['binary.2.inclination_deg'] = i
         if q is not None:
             assert 0.1 <= q <= 1
             m1, m2 = np.array([1, q]) / (1 + q)
