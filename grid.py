@@ -77,18 +77,17 @@ class Outcome(object):
 
 class Quad(object):
 
-    def __init__(self, toml='binary_martin_base.toml'):
+    def __init__(self, toml='binary_martin_base2.toml'):
         self.config = Config(toml)
 
-    def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=[0.01*AU, 0., 10*AU]):
+    def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=11*AU):
         config = self.config.copy()
         if en is not None:
-            assert 0 <= en <= 0.99
             config['binary.2.en'] = en
         if an is not None:
             config['binary.2.an_AU'] = an
         if i is not None:
-            config['binary.2.euler_deg', 1] = i
+            config['binary.2.inclination_deg'] = i
         if q is not None:
             assert 0.1 <= q <= 1
             m1, m2 = np.array([1, q]) / (1 + q)
@@ -117,7 +116,7 @@ class Quad(object):
 
         m = multi(config)
 
-        tx = np.minimum(dt, 1000*YR)
+        tx = np.minimum(dt, 10*YR)
         tt = 0
         while True:
             m.rund(tx, dtd=0.1*YR)
@@ -153,15 +152,15 @@ class Quad(object):
         ro = m.ron
         # TODO - test whether moon is further from earth than (solar) hill radius
         #if ((ii := np.argmax(ro[0, :] > 0.01 * AU)) > 0):
-          #  return Outcome(Fate.MOONGONE, m.t[ii])
+           # return Outcome(Fate.MOONGONE, m.t[ii])
         # TODO - test whether moon and earth escaped jointly
         #if ((ii := np.argmax(ro[2, :] > 2 * AU)) > 0):
          #   return Outcome(Fate.EARTHGONE, m.t[ii] )
 
         if (ii := firsttrue(ro[0, :] > 0.01 * AU)) >= 0:
-            return Outcome(Fate.MOONGONE, m.t[ii])
-        if (ii := firsttrue(ro[2, :] > 2 * AU)) >= 0:
-            return Outcome(Fate.EARTHGONE, m.t[ii])
+            return Outcome(Fate.MOONGONE, m.t[-1])
+        if (ii := firsttrue(ro[2, :] > 10 * AU)) >= 0:
+            return Outcome(Fate.EARTHGONE, m.t[-1])
 
         if not np.allclose(m.t[-1], dt):
             return Outcome(Fate.COLLISION, m.t[-1])
