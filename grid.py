@@ -116,7 +116,7 @@ class Quad(object):
 
         m = multi(config)
 
-        tx = np.minimum(dt, 10*YR)
+        tx = np.minimum(dt, 100*YR)
         tt = 0
         while True:
             m.rund(tx, dtd=0.1*YR)
