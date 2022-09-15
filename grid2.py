@@ -1,15 +1,19 @@
 import numpy as np
+from matplotlib import pylab as plt
 
 from physconst import AU, YR
 from rotation import deg2rad
 from color import rgb
+from human import time2human
 
-from ..config import Config
-from ..util import firsttrue
+from multistar.generic import multi
+from multistar.config import Config
+from multistar.parallel import ParallelProcessor
+from multistar.util import firsttrue
 
-from ..interface import STATUS_OK, STATUS_COLLIDE, STATUS_ESCAPE
+from multistar.interface import STATUS_OK, STATUS_COLLIDE, STATUS_ESCAPE
 
-from .base import StudyBase, FateBase, TimeOutcome, SystemBase
+from multistar.grid.base import StudyBase, FateBase, TimeOutcome, SystemBase
 
 class Fate(FateBase):
     FAIL = FateBase.FAIL
