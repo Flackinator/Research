@@ -116,7 +116,7 @@ class Quad(object):
 
         m = multi(config)
 
-        tx = np.minimum(dt, 100*YR)
+        tx = np.minimum(dt, 1000*YR)
         tt = 0
         while True:
             m.rund(tx, dtd=0.1*YR)
@@ -172,10 +172,12 @@ class Study(ParallelProcessor):
     VERSION = 10100
 
     vars = {
-        'q' : ('q',  'mass ratio of binary'),
-        'a' : ('an', 'semimajor axis of binary (AU)'),
-        'e' : ('en', 'eccentricity of binary'),
-        'i' : ('i', 'inclination of binary (degrees)'),
+        'q' : ('q',  'mass ratio of binary', '$q={:5g}$'),
+        'a' : ('an', 'semimajor axis of binary (AU)', '$a={:5g}$ (AU)'),
+        'e' : ('en', 'eccentricity of binary', '$e={:5g}$'),
+        'i' : ('i',  'inclination of binary (degrees)', '$i={:5g}$ (deg)'),
+        'm' : ('pm', 'phase of the moon', r'$\phi_{{\mathrm{{moon}}}}={:5g}$ (deg)'),
+        'b' : ('pb', 'phase of the binary', r'$\phi_{{\mathrm{{planet}}}}={:5g}$ (deg)'),
         }
 
     def legend(self, ax, rv = None):
@@ -199,7 +201,7 @@ class Study(ParallelProcessor):
 
         if vars is None:
             vars = ''
-            for k,(v,l) in self.vars.items():
+            for k,(v,l, _) in self.vars.items():
                 vals = list()
                 for r in self.results:
                     x =  getattr(r, v, None)
@@ -216,7 +218,7 @@ class Study(ParallelProcessor):
 
         assert len(vars) == 2
         for k in vars:
-            v, l = self.vars[k]
+            v, l, _ = self.vars[k]
             labels.append(l)
             coords.append(np.asarray([getattr(r, v) for r in self.results]))
 
