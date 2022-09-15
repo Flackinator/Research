@@ -158,9 +158,9 @@ class Quad(object):
          #   return Outcome(Fate.EARTHGONE, m.t[ii] )
 
         if (ii := firsttrue(ro[0, :] > 0.01 * AU)) >= 0:
-            return Outcome(Fate.MOONGONE, m.t[-1])
+            return Outcome(Fate.MOONGONE, m.t[ii-1])
         if (ii := firsttrue(ro[2, :] > 10 * AU)) >= 0:
-            return Outcome(Fate.EARTHGONE, m.t[-1])
+            return Outcome(Fate.EARTHGONE, m.t[ii-1])
 
         if not np.allclose(m.t[-1], dt):
             return Outcome(Fate.COLLISION, m.t[-1])
