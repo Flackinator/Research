@@ -1,14 +1,14 @@
 import numpy as np
-from matplotlib import pylab as plt
+
 
 from physconst import AU, YR
 from rotation import deg2rad
 from color import rgb
-from human import time2human
 
-from multistar.generic import multi
+
+
 from multistar.config import Config
-from multistar.parallel import ParallelProcessor
+
 from multistar.util import firsttrue
 
 from multistar.interface import STATUS_OK, STATUS_COLLIDE, STATUS_ESCAPE
@@ -68,7 +68,7 @@ class Quad(SystemBase):
     def __init__(self, toml='^/moon3.toml'):
         self.config = Config(toml)
 
-    def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=[0.01*AU, 0., 10*AU]):
+    def __call__(self, en=0, an=0.1, i=0, q=1, pm=0, pb=0, dt=1*YR, cutoff=[0.02*AU, 0., 11*AU]):
         config = self.config.copy()
         if en is not None:
             config['binary orbit.en'] = en
