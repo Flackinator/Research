@@ -25,8 +25,8 @@ euler_deg = [ 0,  0, 0 ]
 # Star binary
 [binary.2]
 name = 'Binary orbit'
-an = 8.976e12
-en = 0
+an = 7.48e12
+en = 0.4
 phase = 0.5
 euler_deg = [ 0,  0, 0 ]
 
@@ -64,7 +64,7 @@ Jn = 1e51
 [star.3]
 name = 'Star 1'
 euler_deg = [ 0,  72, 0 ]
-M = 1.8895e33
+M = 9.945e32
 I = 2e55
 S = 6.7483e10
 k = 0.299
@@ -75,7 +75,7 @@ Jn = 1.4e51
 [star.4]
 name = 'Star 2'
 euler_deg = [ 0, -84, 0 ]
-M = 9.9446e31
+M = 9.945e32
 I = 1.5e55
 S = 6.53958e9
 k = 0.030

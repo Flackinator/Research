@@ -258,8 +258,8 @@ class Study(ParallelProcessor):
         else:
             ax.scatter(*coords, color=c)
 
-        ax.set_xlabel(labels[0], fontsize=22)
-        ax.set_ylabel(labels[1], fontsize=22)
+        ax.set_xlabel(labels[0], fontsize=16)
+        ax.set_ylabel(labels[1], fontsize=16)
 
         if data == 'time':
             ax==fig.colorbar(cm, label = 'log( time / years )')
