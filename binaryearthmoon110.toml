@@ -26,9 +26,9 @@ euler_deg = [ 0,  0, 0 ]
 [binary.2]
 name = 'Binary orbit'
 an = 7.48e12
-en = 0.4
+en = 0
 phase = 0.5
-euler_deg = [ 0,  0, 0 ]
+euler_deg = [ 0,  30, 0 ]
 
 # outer binary
 [binary.3]
